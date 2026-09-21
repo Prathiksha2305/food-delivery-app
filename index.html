@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie - Food Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🍔 Foodie</h1>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#restaurants">Restaurants</a>
+    <a href="#offers">Offers</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+        
+        <button id="cartBtn">🛒 Cart (0)</button>
+         <button onclick="openLogin()">👤 Login</button>
+    </header>
+   
+
+    <section class="hero" id="home">
+        <img src="images/pizza.jpg" alt="Delicious Pizza">
+        <div>
+            <h2>Delicious Food, Delivered Fast!</h2>
+            <p>Order your favourite food from your favourite restaurants.</p>
+            <button>Order Now</button>
+        </div>
+    </section>
+    <section class="offers" id="offers">
+    <div class="offer-content">
+        <span>🔥 LIMITED OFFER</span>
+        <h2>Get 20% OFF on Your First Order!</h2>
+        <p>Use coupon code <b>FOOD20</b> and enjoy your favourite food.</p>
+        <button onclick="alert('Coupon FOOD20 applied! 🎉')">Order Now</button>
+    </div>
+</section>
+
+    <section class="menu" id="menu">
+        <h2>Popular Foods</h2>
+        <div class="categories">
+    <button onclick="filterFood('all')">All</button>
+    <button onclick="filterFood('pizza')">🍕 Pizza</button>
+    <button onclick="filterFood('burger')">🍔 Burger</button>
+    <button onclick="filterFood('biryani')">🍗 Biryani</button>
+    <button onclick="filterFood('pasta')">🍝 Pasta</button>
+    <button onclick="filterFood('dessert')">🍰 Desserts</button>
+</div>
+        <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search food...">
+</div>
+
+        <div class="food-container">
+            <div class="food-card">
+    <img src="images/pizza.jpg" alt="Pizza">
+    <h3>🍕 Pizza</h3>
+    <p>Cheesy & delicious pizza</p>
+    <div class="rating">⭐ 4.8</div>
+    <h4>₹199</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <img src="images/burger.jpg" alt="Burger">
+    <h3>🍔 Burger</h3>
+    <p>Fresh & tasty burger</p>
+    <div class="rating">⭐ 4.7</div>
+    <h4>₹149</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <img src="images/pasta.jpg" alt="Pasta">
+    <h3>🍝 Pasta</h3>
+    <p>Creamy Italian pasta</p>
+    <div class="rating">⭐ 4.9</div>
+    <h4>₹179</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <h3>🍗 Chicken Biryani</h3>
+    <p>Hot & spicy chicken biryani</p>
+    <div class="rating">⭐ 4.8</div>
+    <h4>₹220</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <h3>🍜 Noodles</h3>
+    <p>Delicious spicy noodles</p>
+    <div class="rating">⭐ 4.6</div>
+    <h4>₹160</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <h3>🌯 Shawarma</h3>
+    <p>Juicy chicken shawarma</p>
+    <div class="rating">⭐ 4.7</div>
+    <h4>₹140</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <h3>🍟 French Fries</h3>
+    <p>Crispy golden fries</p>
+    <div class="rating">⭐ 4.5</div>
+    <h4>₹99</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <h3>🥪 Sandwich</h3>
+    <p>Fresh vegetable sandwich</p>
+    <div class="rating">⭐ 4.6</div>
+    <h4>₹120</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+   <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <h3>🥞 Dosa</h3>
+    <p>Crispy South Indian dosa</p>
+    <div class="rating">⭐ 4.8</div>
+    <h4>₹80</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <h3>🍛 South Indian Meals</h3>
+    <p>Traditional full meals</p>
+    <div class="rating">⭐ 4.7</div>
+    <h4>₹150</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <h3>🍰 Chocolate Cake</h3>
+    <p>Rich chocolate cake</p>
+    <div class="rating">⭐ 4.9</div>
+    <h4>₹130</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+<div class="food-card">
+    <h3>🥤 Milkshake</h3>
+    <p>Cold & creamy milkshake</p>
+    <div class="rating">⭐ 4.6</div>
+    <h4>₹110</h4>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+        </div>
+    </section>
+    <section class="restaurants">
+    <h2>Popular Restaurants</h2>
+
+    <div class="restaurant-container">
+
+        <div class="restaurant-card">
+            <h3>🍕 Pizza Hut</h3>
+            <p>⭐ 4.7 • 30 mins</p>
+        </div>
+
+        <div class="restaurant-card">
+            <h3>🍔 Burger King</h3>
+            <p>⭐ 4.6 • 25 mins</p>
+        </div>
+
+        <div class="restaurant-card">
+            <h3>🍗 KFC</h3>
+            <p>⭐ 4.8 • 20 mins</p>
+        </div>
+
+    </div>
+</section>
+<section class="restaurants" id="restaurants">
+    <h2>🍽️ Popular Restaurants</h2>
+
+    <div class="restaurant-container">
+
+        <div class="restaurant-card">
+            <h3>🍕 Pizza Hub</h3>
+            <p>Pizza • Fast Food</p>
+            <span>⭐ 4.8</span>
+        </div>
+
+        <div class="restaurant-card">
+            <h3>🍗 Biryani House</h3>
+            <p>Biryani • Indian</p>
+            <span>⭐ 4.7</span>
+        </div>
+
+        <div class="restaurant-card">
+            <h3>🍔 Burger Point</h3>
+            <p>Burgers • Snacks</p>
+            <span>⭐ 4.6</span>
+        </div>
+
+    </div>
+</section>
+
+<div id="cartBox" class="cart-box">
+    <h2>🛒 Your Cart</h2>
+    <div id="cartItems"></div>
+    <h3 id="total">Total: ₹0</h3>
+    <button onclick="openCheckout()">Checkout</button>
+    <button onclick="closeCart()">Close</button>
+</div>   
+ <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 +91 98765 43210</p>
+    <p>📧 foodie@gmail.com</p>
+    <p>📍 Chennai, Tamil Nadu</p>
+</section>  
+<div id="loginBox" class="login-box">
+    <h2>👤 Login</h2>
+
+    <input type="email" id="email" placeholder="Enter Email">
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="login()">Login</button>
+    <button onclick="closeLogin()">Close</button>
+</div>
+<footer>
+    <h2>🍔 Foodie</h2>
+    <p>Delicious food delivered to your doorstep.</p>
+    <p>© 2026 Foodie. All Rights Reserved.</p>
+</footer>
+<div id="checkoutBox" class="checkout-box">
+
+    <h2>🧾 Checkout</h2>
+
+    <input type="text" id="customerName" placeholder="Your Name">
+
+    <input type="tel" id="phone" placeholder="Phone Number">
+
+    <textarea id="address" placeholder="Delivery Address"></textarea>
+
+    <select id="payment">
+        <option value="">Select Payment Method</option>
+        <option>Cash on Delivery</option>
+        <option>UPI</option>
+        <option>Card</option>
+    </select>
+   
+<div class="order-summary">
+    <p>Food Total: <span id="foodTotal">₹0</span></p>
+    <p>Delivery Charge: <span>₹30</span></p>
+    <h3>Grand Total: <span id="grandTotal">₹30</span></h3>
+</div>
+
+    <button onclick="placeOrder()">Place Order</button>
+
+    <button onclick="closeCheckout()">Cancel</button>
+
+</div>
+
+<div id="successBox" class="success-box">
+    <div class="success-icon">✅</div>
+    <h2>Order Confirmed!</h2>
+    <p>Your order has been placed successfully.</p>
+    <p>Thank you for ordering from Foodie ❤️</p>
+    <button onclick="closeSuccess()">Continue Shopping</button>
+    <button onclick="trackOrder()">🚚 Track Order</button>
+</div>
+<div id="trackingBox" class="tracking-box">
+    <h2>🚚 Track Your Order</h2>
+
+    <div class="tracking-step active">
+        <span>✅</span>
+        <p>Order Confirmed</p>
+    </div>
+
+    <div class="tracking-step">
+        <span>🍳</span>
+        <p>Preparing Your Food</p>
+    </div>
+
+    <div class="tracking-step">
+        <span>🛵</span>
+        <p>Out for Delivery</p>
+    </div>
+
+    <div class="tracking-step">
+        <span>🎉</span>
+        <p>Delivered</p>
+        </div>
+    <button onclick="closeTracking()">Continue Shopping</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
